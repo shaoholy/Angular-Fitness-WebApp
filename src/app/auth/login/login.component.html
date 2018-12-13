@@ -15,7 +15,8 @@
             required>
             <mat-error>password missing</mat-error>
         </mat-form-field>
-        <button type = "submit" mat-raised-button color = "primary" [disabled] = "loginForm.invalid">login</button>
+        <button *ngIf = "!(isLoading$ | async)" type = "submit" mat-raised-button color = "primary" [disabled] = "loginForm.invalid">login</button>
+        <mat-spinner *ngIf = "(isLoading$ | async)"></mat-spinner>
     </form>
     
 </section>
